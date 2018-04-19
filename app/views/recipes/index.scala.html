@@ -1,0 +1,23 @@
+@(recipe : Recipe, recipes : Set[Recipe])
+
+<html>
+    <head>
+        <title>All Recipes</title>
+    </head>
+    <body>
+
+        <h1>All Recipes</h1>
+        <ul>
+        @for(recipes<-recipe){
+        <a href="#">@recipe.name </a>
+            <li>Name : @recipe.id</li>
+            <li>Type : @recipe.`type`</li>
+            <li>Calories : @recipe.calories</li>
+            <li>Rating : @recipe.rating</li>
+
+        </ul>
+
+
+        }
+    </body>
+</html>
