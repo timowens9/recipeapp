@@ -1,0 +1,20 @@
+@*
+ * This template displays the data associated with a single recipe
+*@
+
+@(recipe: Recipe)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Recipe: @recipe.name</title>
+    </head>
+    <body>
+        <h1>@recipe.name</h1>
+        <h2>Information</h2>
+            <p>ID: @recipe.id</p>
+            <p>Type: @recipe.category</p>
+            <p>Calores: @recipe.calories</p>
+            <p>Rating: @recipe.rating</p>
+    </body>
+</html>

@@ -1,5 +1,7 @@
-@(recipe : Recipe, recipes : Set[Recipe])
+@(recipes : HashSet[Recipe])
+@import models.Recipe
 
+<!DOCTYPE html>
 <html>
     <head>
         <title>All Recipes</title>
@@ -8,10 +10,11 @@
 
         <h1>All Recipes</h1>
         <ul>
-        @for(recipes<-recipe){
-        <a href="#">@recipe.name </a>
+
+        @for(recipe <- recipes){
+        <a href="#"> </a>
             <li>Name : @recipe.id</li>
-            <li>Type : @recipe.`type`</li>
+            <li>Type : @recipe.category</li>
             <li>Calories : @recipe.calories</li>
             <li>Rating : @recipe.rating</li>
 

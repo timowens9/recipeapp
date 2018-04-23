@@ -1,20 +1,24 @@
 package controllers;
 
-import models.Recipe;
+import models.RecipeData;
 import play.mvc.Controller;
 import play.mvc.Result;
-
-import java.util.Set;
-
+import views.html.recipes.index;
+import views.html.recipes.viewRecipe;
 
 
 public class RecipeController extends Controller {
 
+    RecipeData recipes;
+
+    public RecipeController() {
+        this.recipes = new RecipeData();
+    }
+
     //For all Recipes
 
-    public static Result index(){
-        Set<Recipe> recipes= Recipe.allRecipes();
-        return ok(views.html.index.render(recipes));
+    public Result index(){
+        return ok(index.render(recipes.getRecipes()));
 
     }
 
@@ -45,7 +49,9 @@ public class RecipeController extends Controller {
 
     // Method for Recipe Details based on ID
     public Result showRecipe(Integer id){
-        return TODO;
+
+        return ok(viewRecipe.render(this.recipes.findByID(id)));
+
     }
 
 }
