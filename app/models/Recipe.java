@@ -7,7 +7,7 @@ public class Recipe {
 
     public Integer id;
 
-    public String type;
+    public String category;
 
     public String name;
 
@@ -17,53 +17,52 @@ public class Recipe {
 
 
 
-    public Recipe(Integer id, String type, String name, Integer calories, String rating){
+    public Recipe(Integer id, String category, String name, Integer calories, String rating){
 
         this.id = id;
-        this.type = type;
+        this.category = category;
         this.name = name;
         this.calories = calories;
         this.rating = rating;
     }
 
-
-    //Some data
-    public static Set<Recipe> recipes;
-
-    static {
-        recipes = new HashSet<>();
-        recipes.add(new Recipe(1, "Breakfast", "Omelet", 200,"8/10" ));
-        recipes.add(new Recipe(2, "Lunch", "Burger", 430,"6/10" ));
-        recipes.add(new Recipe(3, "Dinner", "Tacos", 360,"10/10" ));
-
+    public Integer getId() {
+        return id;
     }
 
-
-    public static Set<Recipe> allRecipes(){
-        return recipes;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public static Recipe findByID(Integer id){
-
-        for (Recipe recipe : recipes){
-            if (id.equals(recipe.id)){
-                return recipe;
-            }
-        }
-        return null;
-
+    public String getCategory() {
+        return category;
     }
 
-    public static void add(Recipe recipe){
-
-        recipes.add(recipe);
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-
-
-    public static boolean remove(Recipe recipe){
-
-        return recipes.remove(recipe);
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getCalories() {
+        return calories;
+    }
+
+    public void setCalories(Integer calories) {
+        this.calories = calories;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
 }
