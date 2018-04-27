@@ -1,0 +1,14 @@
+@*
+ * This template displays the data associated with a single recipe
+*@
+
+@(recipeForm: Form[Recipe])
+
+@helper.form(action = routes.RecipeController.saveRecipe()) {
+
+    @helper.inputText(recipeForm("name"))
+    @helper.inputText(recipeForm("category"))
+    @helper.inputText(recipeForm("calories"))
+    @helper.inputText(recipeForm("rating"))
+    <input type="submit" value="Create">
+}

@@ -1,7 +1,9 @@
 package models;
 
+import javax.persistence.Entity;
 import java.util.HashSet;
 
+@Entity
 public class RecipeData {
 
     public HashSet<Recipe> recipes;
