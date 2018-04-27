@@ -1,26 +1,30 @@
-@(recipes : HashSet[Recipe])
-@import models.Recipe
+@(recipes : List[Recipe])
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>All Recipes</title>
-    </head>
-    <body>
+@main("Recipes") {
+    <div id="navigation">
+        <p>Welcome to recipe app!</p>
+        <p><a href="/recipes/create">create a new recipe</a></p>
+    </div>
+    <h2>Recipes</h2>
 
-        <h1>All Recipes</h1>
-        <ul>
-
-        @for(recipe <- recipes){
-        <a href="#"> </a>
-            <li>Name : @recipe.id</li>
-            <li>Type : @recipe.category</li>
-            <li>Calories : @recipe.calories</li>
-            <li>Rating : @recipe.rating</li>
-
-        </ul>
-
-
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Calories</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </tr>
+        @for(recipe <- recipes) {
+            <tr>
+                <td>@recipe.id</td>
+                <td>@recipe.name</td>
+                <td>@recipe.category</td>
+                <td>@recipe.calories</td>
+                <td>@recipe.rating</td>
+                <td><a href="/recipes/edit/@recipe.id">edit</a> | <a href="/recipes/delete/@recipe.id">delete</a></td>
+            </tr>
         }
-    </body>
-</html>
+    </table>
+}

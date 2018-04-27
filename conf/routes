@@ -3,7 +3,7 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
+GET     /                           controllers.RecipeController.index
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
@@ -19,8 +19,10 @@ GET     /recipes/:id                controllers.RecipeController.showRecipe(id :
 
 GET     /recipes/edit/:id           controllers.RecipeController.editRecipe(id : Integer)
 
++nocsrf
 POST    /recipes/edit               controllers.RecipeController.updateRecipe()
 
++nocsrf
 POST    /recipes/create             controllers.RecipeController.saveRecipe()
 
 GET     /recipes/delete/:id         controllers.RecipeController.deleteRecipe(id : Integer)
