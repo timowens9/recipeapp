@@ -1,50 +1,48 @@
 package models;
 
-import java.util.HashSet;
-import java.util.Set;
+import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import javax.validation.Constraint;
+import java.util.List;
 
 @Entity
-public class Recipe extends BaseModel {
+public class Recipe extends Model {
 
-    private static final long serialVersionUID = 1L;
+    @Id
+    public Long id;
 
+    @Constraints.Required
     public String name;
 
     public String category;
 
     public Integer calories;
 
-    public String rating;
+    public Integer rating;
 
-
-
-    public Recipe(Integer id, String category, String name, Integer calories, String rating){
-
-        this.id = id;
-        this.category = category;
-        this.name = name;
-        this.calories = calories;
-        this.rating = rating;
+    public static List<Recipe> all() {
+        return find.all();
     }
 
-    public Integer getId() {
+    public static Finder<Long, Recipe> find = new Finder<>(Recipe.class);
+
+    public static void create(Recipe recipe) {
+        recipe.save();
+    }
+
+    public static void delete(Long id) {
+        find.ref(id).delete();
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public String getName() {
@@ -55,6 +53,14 @@ public class Recipe extends BaseModel {
         this.name = name;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public Integer getCalories() {
         return calories;
     }
@@ -63,11 +69,11 @@ public class Recipe extends BaseModel {
         this.calories = calories;
     }
 
-    public String getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 }

@@ -19,8 +19,10 @@ GET     /recipes/:id                controllers.RecipeController.showRecipe(id :
 
 GET     /recipes/edit/:id           controllers.RecipeController.editRecipe(id : Integer)
 
++nocsrf
 POST    /recipes/edit               controllers.RecipeController.updateRecipe()
 
++nocsrf
 POST    /recipes/create             controllers.RecipeController.saveRecipe()
 
 GET     /recipes/delete/:id         controllers.RecipeController.deleteRecipe(id : Integer)
