@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</titl>
+</head>
+<body>
+@*
+* This template displays the data associated with a single recipe
+*@
+
+@(recipeForm: Form[Recipe])
+
+@helper.form(action = routes.RecipeController.modifyRecipe()) {
+
+@helper.inputText(recipeForm("name"))
+@helper.inputText(recipeForm("category"))
+@helper.inputText(recipeForm("calories"))
+@helper.inputText(recipeForm("rating"))
+<input type="submit" value="Create">
+
+</body>
+</html>
