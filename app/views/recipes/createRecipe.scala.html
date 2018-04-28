@@ -1,16 +1,24 @@
 @*
  * This template creates the data associated with a single recipe
 *@
+<!DOCTYPE html>
 
-<h1>Create New Recipe</h1>
+<html>
+    <head>
+        <title>Create New Recipe</title>
+    </head>
+    <body>
+        <h1>Create New Recipe</h1>
 
-@(recipeForm: Form[Recipe])
+        @(recipeForm: Form[Recipe])
 
-@helper.form(action = routes.RecipeController.saveRecipe()) {
+        @helper.form(action = routes.RecipeController.saveRecipe()) {
 
-    @helper.inputText(recipeForm("name"))
-    @helper.inputText(recipeForm("category"))
-    @helper.inputText(recipeForm("calories"))
-    @helper.inputText(recipeForm("rating"))
-    <input type="submit" value="Create">
-}
+            @helper.inputText(recipeForm("name"))
+            @helper.inputText(recipeForm("category"))
+            @helper.inputText(recipeForm("calories"))
+            @helper.inputText(recipeForm("rating"))
+            <input type="submit" value="Create">
+        }
+    </body>
+</html>
