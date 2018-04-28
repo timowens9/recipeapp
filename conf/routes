@@ -9,7 +9,7 @@ GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message
 
-GET     /recipes/list               controllers.RecipeController.list();
+
 
 GET     /recipes                    controllers.RecipeController.index()
 
@@ -26,8 +26,6 @@ POST    /recipes/edit               controllers.RecipeController.updateRecipe()
 POST    /recipes/create             controllers.RecipeController.saveRecipe()
 
 GET     /recipes/delete/:id         controllers.RecipeController.deleteRecipe(id : Integer)
-
-GET     /recipes/modifyRecipe/:id   controllers.RecipeController.modifyRecipe(id : Integer)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

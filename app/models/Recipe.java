@@ -76,5 +76,4 @@ public class Recipe extends Model {
     public void setRating(Integer rating) {
         this.rating = rating;
     }
-
 }
