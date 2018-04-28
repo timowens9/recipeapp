@@ -6,7 +6,7 @@ import play.data.FormFactory;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.recipes.*;
+import views.html.recipes.*;
 
 import javax.inject.Inject;
 
@@ -67,16 +67,7 @@ public class RecipeController extends Controller {
      * @return the form data
      */
     public Result editRecipe(Integer id) {
-
-        recipe.delete(id);
-
-        Form<Recipe> recipeForm = formFactory.form(Recipe.class);
-        return ok(
-                createRecipe.render(recipeForm)
-        );
-
-
-
+        return TODO;
     }
 
     /**
